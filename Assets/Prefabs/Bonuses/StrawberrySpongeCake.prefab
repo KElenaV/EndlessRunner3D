@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6452435492148602896}
   - component: {fileID: 9110589275953634522}
   - component: {fileID: 7115655330511548356}
+  - component: {fileID: 3949442510820076223}
+  - component: {fileID: 3879295804403397087}
   m_Layer: 0
   m_Name: StrawberrySpongeCake
   m_TagString: Untagged
@@ -105,3 +107,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &3949442510820076223
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7309250785854668047}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.100063406
+  m_Height: 0.25417355
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.12328692, z: -0.000000007450581}
+--- !u!114 &3879295804403397087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7309250785854668047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f538c4946b21648aaceda48e625abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collectedSound: {fileID: 8300000, guid: 91d900e7d49cc974aaff2fa0c8c6d65c, type: 3}
