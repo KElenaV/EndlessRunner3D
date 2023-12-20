@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Mover : MonoBehaviour
 {
@@ -11,12 +11,17 @@ public class Mover : MonoBehaviour
     private int _allPoints;
     private int _targetPoint;
     private float[] _xPoints = { -2.1f, 0f, 2.1f };
+    private float _checkPointZ;
+    private float _checkDistance = 80;
+
+    public event UnityAction CrossedSection;
 
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
         _allPoints = _xPoints.Length;
         _targetPoint = _xPoints.Length / 2;
+        _checkPointZ = transform.position.z + _checkDistance;
         transform.position = new Vector3(_xPoints[_targetPoint], transform.position.y, transform.position.z);
     }
 
@@ -33,6 +38,13 @@ public class Mover : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.forward * _forwardSpeed * Time.deltaTime);
+
+        if(transform.position.z >= _checkPointZ)
+        {
+            Debug.Log(transform.position.z);
+            _checkPointZ += _checkDistance;
+            CrossedSection?.Invoke();
+        }
     }
 
     private void OnMoveSideward(float direction)

@@ -12,11 +12,8 @@ public class PlayerInput : MonoBehaviour
 
    public void OnSideMove(InputAction.CallbackContext context)
     {
-        //_sidewayDirection = context.ReadValue<float>();
-        
         if (context.performed)
         {
-            //Debug.Log(context.ReadValue<float>());
             MoveSideward?.Invoke(context.ReadValue<float>());
         }
     }
