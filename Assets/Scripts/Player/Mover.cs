@@ -52,7 +52,6 @@ public class Mover : MonoBehaviour
 
         if(transform.position.z >= _checkPointZ)
         {
-            Debug.Log(transform.position.z);
             _checkPointZ += _checkDistance;
             CrossedSection?.Invoke();
         }
