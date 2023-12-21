@@ -1,16 +1,12 @@
+using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-public class SoundEffects : MonoBehaviour
+public class Score : MonoBehaviour
 {
     [SerializeField] private PlayerCollision _player;
+    [SerializeField] private TMP_Text _scoreDisplay;
 
-    private AudioSource _audioSource;
-
-    private void Awake()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
+    private int _score = 0;
 
     private void OnEnable()
     {
@@ -24,6 +20,7 @@ public class SoundEffects : MonoBehaviour
 
     private void OnCakeCollected(Cake cake)
     {
-        _audioSource.PlayOneShot(cake.CollectedSound);
+        _score += cake.Reward;
+        _scoreDisplay.text = _score.ToString();
     }
 }
