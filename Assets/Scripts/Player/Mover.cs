@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,6 +7,7 @@ public class Mover : MonoBehaviour
 {
     [SerializeField] private float _forwardSpeed = 1;
     [SerializeField] private float _sidewardSpeed = 0;
+    [SerializeField] private Distance _distance;
 
     private PlayerInput _playerInput;
     private int _allPoints;
@@ -15,6 +17,8 @@ public class Mover : MonoBehaviour
     private float _checkDistance = 80;
 
     public event UnityAction CrossedSection;
+
+    public float Speed => _forwardSpeed;
 
     private void Awake()
     {
@@ -28,11 +32,18 @@ public class Mover : MonoBehaviour
     private void OnEnable()
     {
         _playerInput.MoveSideward += OnMoveSideward;
+        _distance.ChangeSpeed += OnChangeSpeed;
+    }
+
+    private void OnChangeSpeed()
+    {
+        _forwardSpeed++;
     }
 
     private void OnDisable()
     {
         _playerInput.MoveSideward -= OnMoveSideward;
+        _distance.ChangeSpeed -= OnChangeSpeed;
     }
 
     private void Update()
