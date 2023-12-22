@@ -10,7 +10,7 @@ public class Distance : MonoBehaviour
     [SerializeField] private float _delay = 10;
 
     private int _distance = 0;
-    private int _speedChangaDistance = 5;
+    private int _speedChangaDistance = 10;
     private int _distanceLevel = 1;
 
     public event UnityAction ChangeSpeed; 

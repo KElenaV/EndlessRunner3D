@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class PlayerCollision : MonoBehaviour
 {
     public event UnityAction<Cake> CakeCollected;
+    public event UnityAction Fell;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,6 +12,10 @@ public class PlayerCollision : MonoBehaviour
         {
             CakeCollected?.Invoke(cake);
             cake.gameObject.SetActive(false);
+        }
+        else if(other.gameObject.TryGetComponent(out Obstacle obstacle))
+        {
+            Fell?.Invoke();
         }
     }
 }

@@ -675,6 +675,8 @@ MonoBehaviour:
   _collectedDisplay: {fileID: 1558875201}
   _distanceDisplay: {fileID: 141993975}
   _prestartSection: {fileID: 1431485702}
+  _countSound: {fileID: 8300000, guid: eb81a8a8f1d5f624fbec68909ef12f93, type: 3}
+  _startGameSound: {fileID: 8300000, guid: 38ca1dc521b5b64459b35cfd1142abde, type: 3}
 --- !u!1 &949677209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PreStartSection
       objectReference: {fileID: 0}
+    - target: {fileID: 3551178311584072904, guid: 753740dae2f4c6a42854545fbfa60355, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1924,8 +1930,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 48f8c36463d5dd84894a9ba34476447d, type: 2}
+  m_sharedMaterial: {fileID: 4138956187243852784, guid: 48f8c36463d5dd84894a9ba34476447d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2007,6 +2013,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1987046311}
     m_Modifications:
+    - target: {fileID: 925149192430751682, guid: 39a3a0abb171273418157b1c16236582, type: 3}
+      propertyPath: m_Name
+      value: Stone3
+      objectReference: {fileID: 0}
     - target: {fileID: 966264976775038040, guid: 39a3a0abb171273418157b1c16236582, type: 3}
       propertyPath: m_Name
       value: Section
@@ -2066,6 +2076,14 @@ PrefabInstance:
     - target: {fileID: 3107596900901289003, guid: 39a3a0abb171273418157b1c16236582, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745200119449942724, guid: 39a3a0abb171273418157b1c16236582, type: 3}
+      propertyPath: m_Name
+      value: Stone3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112117281776590532, guid: 39a3a0abb171273418157b1c16236582, type: 3}
+      propertyPath: m_Name
+      value: Stone3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2494,7 +2512,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2591,6 +2609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 2109103932}
+  _countDown: {fileID: 924187993}
 --- !u!4 &268921179845077738
 Transform:
   m_ObjectHideFlags: 0
@@ -3788,10 +3807,10 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 924187992}
   - {fileID: 705507995}
+  - {fileID: 540870680}
   - {fileID: 2109103927}
   - {fileID: 1987046311}
-  - {fileID: 540870680}
+  - {fileID: 924187992}
   - {fileID: 1733776417}
   - {fileID: 1555005446}
