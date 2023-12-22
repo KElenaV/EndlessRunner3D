@@ -13,7 +13,7 @@ public class Mover : MonoBehaviour
     private PlayerInput _playerInput;
     private PlayerCollision _playerCollision;
     private int _pointsCount;
-    private int _targetPoint;
+    private int _targetPointIndex;
     private float[] _xPoints = { -2.1f, 0f, 2.1f };
     private float _checkPointZ = -18;
     private float _checkDistance = 80;
@@ -29,9 +29,9 @@ public class Mover : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         _playerCollision = GetComponent<PlayerCollision>();
         _pointsCount = _xPoints.Length;
-        _targetPoint = _xPoints.Length / 2;
+        _targetPointIndex = _xPoints.Length / 2;
         _checkPointZ += _checkDistance;
-        transform.position = new Vector3(_xPoints[_targetPoint], transform.position.y, transform.position.z);
+        SetPosition(_xPoints[_targetPointIndex]);
     }
 
     private void OnEnable()
@@ -52,28 +52,20 @@ public class Mover : MonoBehaviour
     {
         if (_run)
         {
-            transform.Translate(Vector3.forward * _forwardSpeed * Time.deltaTime);
-
-            if (transform.position.z >= _checkPointZ)
-            {
-                _checkPointZ += _checkDistance;
-                CrossedSection?.Invoke();
-            }
+            MoveForward();
+            CheckSectionCrossing();
         }
     }
 
     private void OnMoveSideward(float direction)
     {
-        if (_run)
+        if (_run && IsWithinBounds())
         {
-            if (transform.position.z < _startPoint)
-                return;
+            _targetPointIndex += (int)direction;
 
-            _targetPoint = _targetPoint + (int)direction;
-
-            if (_targetPoint >= _pointsCount || _targetPoint < 0)
+            if (_targetPointIndex >= _pointsCount || _targetPointIndex < 0)
             {
-                _targetPoint = Mathf.Clamp(_targetPoint, 0, _pointsCount - 1);
+                _targetPointIndex = Mathf.Clamp(_targetPointIndex, 0, _pointsCount - 1);
                 return;
             }
 
@@ -86,11 +78,11 @@ public class Mover : MonoBehaviour
 
     private IEnumerator MoveRightTillPoint()
     {
-        while(_xPoints[_targetPoint] > transform.position.x)
+        while (_xPoints[_targetPointIndex] > transform.position.x)
         {
             transform.Translate(Vector3.right * _sidewardSpeed * Time.deltaTime);
-            float xPosition = Mathf.Clamp(transform.position.x, _xPoints[_targetPoint - 1], _xPoints[_targetPoint]);
-            transform.position = new Vector3(xPosition, transform.position.y, transform.position.z);
+            float xPosition = Mathf.Clamp(transform.position.x, _xPoints[_targetPointIndex - 1], _xPoints[_targetPointIndex]);
+            SetPosition(xPosition);
 
             yield return null;
         }
@@ -98,15 +90,30 @@ public class Mover : MonoBehaviour
 
     private IEnumerator MoveLeftTillPoint()
     {
-        while (_xPoints[_targetPoint] < transform.position.x)
+        while (_xPoints[_targetPointIndex] < transform.position.x)
         {
             transform.Translate(Vector3.left * _sidewardSpeed * Time.deltaTime);
-            float xPosition = Mathf.Clamp(transform.position.x, _xPoints[_targetPoint], _xPoints[_targetPoint+1]);
-            transform.position = new Vector3(xPosition, transform.position.y, transform.position.z);
+            float xPosition = Mathf.Clamp(transform.position.x, _xPoints[_targetPointIndex], _xPoints[_targetPointIndex + 1]);
+            SetPosition(xPosition);
 
             yield return null;
         }
     }
+
+    private void MoveForward() => transform.Translate(Vector3.forward * _forwardSpeed * Time.deltaTime);
+
+    private void CheckSectionCrossing()
+    {
+        if (transform.position.z >= _checkPointZ)
+        {
+            _checkPointZ += _checkDistance;
+            CrossedSection?.Invoke();
+        }
+    }
+
+    private void SetPosition(float xPosition) => transform.position = new Vector3(xPosition, transform.position.y, transform.position.z);
+    
+    private bool IsWithinBounds() => transform.position.z >= _startPoint;
 
     private void OnChangeSpeed() => _forwardSpeed++;
 
