@@ -117,5 +117,9 @@ public class Mover : MonoBehaviour
 
     private void OnChangeSpeed() => _forwardSpeed++;
 
-    private void OnFell() => _run = false;
+    private void OnFell()
+    {
+        _run = false;
+        _distance.Stop();
+    }
 }
