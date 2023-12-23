@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3889358089759794053}
   - component: {fileID: 2938724783918713974}
   - component: {fileID: 984601086005341123}
+  - component: {fileID: 1635044177600499739}
   m_Layer: 0
   m_Name: BenchLeft
   m_TagString: Untagged
@@ -99,9 +100,21 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2.2785187, y: 0.5142138, z: 0.4713325}
   m_Center: {x: 0, y: 0.2571069, z: 0.000000052154064}
+--- !u!114 &1635044177600499739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3345710231380063114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df03d57e69765c4698a8b4373ec974f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2283480039148631750}
   - component: {fileID: 2570041498938205422}
   - component: {fileID: 8175662948247487180}
+  - component: {fileID: 401729504429386867}
   m_Layer: 0
   m_Name: AnlgeBushRight
   m_TagString: Untagged
@@ -50,7 +51,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -71,7 +72,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -92,12 +93,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.6761549, y: 0.58418274, z: 0.39146042}
   m_Center: {x: -0.1690388, y: 0.28543377, z: -2.958178}
+--- !u!114 &401729504429386867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7557349065429469622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df03d57e69765c4698a8b4373ec974f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7926257122115213317
 PrefabInstance:
   m_ObjectHideFlags: 0

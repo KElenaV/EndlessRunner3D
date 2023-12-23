@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6939252033995068594}
-  - component: {fileID: 675209272954933106}
+  - component: {fileID: 4075815339233574}
+  - component: {fileID: 131904043154202719}
   m_Layer: 0
   m_Name: Tree6
   m_TagString: Untagged
@@ -33,8 +34,8 @@ Transform:
   - {fileID: 138913532256343461}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &675209272954933106
-BoxCollider:
+--- !u!136 &4075815339233574
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -48,12 +49,26 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.3640783, y: 2.7153096, z: 1.4773843}
-  m_Center: {x: 0, y: 1.351651, z: -0.004112333}
+  serializedVersion: 2
+  m_Radius: 0.65
+  m_Height: 2.65
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.21, z: 0}
+--- !u!114 &131904043154202719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055061455035273818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df03d57e69765c4698a8b4373ec974f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &461403880012329550
 PrefabInstance:
   m_ObjectHideFlags: 0
