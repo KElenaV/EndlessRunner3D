@@ -19,8 +19,8 @@ public class PlayerCollision : MonoBehaviour
         }
         else if(other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            Fell?.Invoke();
             enemy.Stop();
+            Fell?.Invoke();
         }
     }
 }

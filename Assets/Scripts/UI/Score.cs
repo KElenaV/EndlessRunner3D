@@ -6,7 +6,9 @@ public class Score : MonoBehaviour
     [SerializeField] private PlayerCollision _player;
     [SerializeField] private TMP_Text _scoreDisplay;
 
-    private int _score = 0;
+    private int _value = 0;
+
+    public int Value => _value;
 
     private void OnEnable()
     {
@@ -20,7 +22,7 @@ public class Score : MonoBehaviour
 
     private void OnCakeCollected(Cake cake)
     {
-        _score += cake.Reward;
-        _scoreDisplay.text = _score.ToString();
+        _value += cake.Reward;
+        _scoreDisplay.text = _value.ToString();
     }
 }

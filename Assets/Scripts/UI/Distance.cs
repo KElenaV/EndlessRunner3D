@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -10,12 +9,14 @@ public class Distance : MonoBehaviour
     [SerializeField] private Mover _player;
     [SerializeField] private float _delay = 5;
 
-    private int _distance = 0;
+    private int _value = 0;
     private int _speedChangaDistance = 10;
     private int _distanceLevel = 1;
     private bool _isIncrease = true;
 
-    public event UnityAction ChangeSpeed; 
+    public event UnityAction ChangeSpeed;
+
+    public int Value => _value;
 
     private void Start()
     {
@@ -28,10 +29,10 @@ public class Distance : MonoBehaviour
         {
             float velocity = _delay / _player.Speed;
             yield return new WaitForSeconds(velocity);
-            _distance++;
-            _distanceDisplay.text = _distance.ToString();
+            _value++;
+            _distanceDisplay.text = _value.ToString();
 
-            if(_distance / (_speedChangaDistance * _distanceLevel) >= 1)
+            if(_value / (_speedChangaDistance * _distanceLevel) >= 1)
             {
                 ChangeDistanceParametres();
                 ChangeSpeed?.Invoke();

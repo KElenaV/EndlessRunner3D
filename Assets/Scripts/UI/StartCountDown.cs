@@ -56,7 +56,6 @@ public class StartCountDown : MonoBehaviour
         _distanceDisplay.gameObject.SetActive(true);
         NextCount?.Invoke(_startGameSound);
         Destroy(_startPanel);
-        Destroy(_countDown);
         Destroy(_prestartSection);
     }
 }
