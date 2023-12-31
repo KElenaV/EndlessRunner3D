@@ -113,7 +113,7 @@ public class Mover : MonoBehaviour
 
     private void SetPosition(float xPosition) => transform.position = new Vector3(xPosition, transform.position.y, transform.position.z);
     
-    private bool IsWithinBounds() => transform.position.z >= _startPoint;
+    public bool IsWithinBounds() => transform.position.z >= _startPoint;
 
     private void OnChangeSpeed() => _forwardSpeed++;
 
